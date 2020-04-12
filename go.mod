@@ -4,6 +4,5 @@ go 1.14
 
 require (
 	cloud.google.com/go/pubsub v1.3.1
-	github.com/dustin/go-humanize v1.0.0
-	github.com/nlopes/slack v0.6.0
+	github.com/slack-go/slack v0.6.3
 )

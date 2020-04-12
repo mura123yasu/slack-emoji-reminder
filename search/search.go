@@ -1,11 +1,14 @@
 package search
 
 import (
+	"fmt"
+
 	"github.com/slack-go/slack"
 )
 
-func Search(slackAPIToken, query string) *slack.SearchMessages {
-	c := slack.New(slackAPIToken)
+// Search return result of query
+func Search(token, query string) *slack.SearchMessages {
+	c := slack.New(token)
 	searchParams := slack.SearchParameters{
 		Sort:          "timestamp",
 		SortDirection: "desc",
@@ -13,5 +16,6 @@ func Search(slackAPIToken, query string) *slack.SearchMessages {
 		Page:          1,
 	}
 	res, _ := c.SearchMessages(query, searchParams)
+	fmt.Printf("[USER-INFO]message hits: %v\n", res.TotalCount)
 	return res
 }
