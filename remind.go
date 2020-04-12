@@ -19,11 +19,10 @@ func Remind(ctx context.Context, msg *pubsub.Message) error {
 		botToken      = os.Getenv("SLACK_BOT_TOKEN")
 		remindChannel = os.Getenv("SLACK_REMIND_CHANNEL")
 		apiToken      = os.Getenv("SLACK_API_TOKEN")
-		searchChannel = os.Getenv("SLACK_SEARCH_CHANNEL")
 	)
 
 	// get data to remind from slack
-	query := "has::" + reaction + ": " + "from:@" + user + " " + "in:#" + searchChannel
+	query := "has::" + reaction + ": " + "from:@" + user
 	fmt.Printf("[USER-INFO]query string: %v\n", query)
 	result := search.Search(apiToken, query)
 
