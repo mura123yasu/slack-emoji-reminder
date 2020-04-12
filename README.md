@@ -20,7 +20,7 @@ gcloud functions deploy SlackEmojiReminder --project <YOUR GCP PROJECT> \
 
 # create Cloud Scheduler
 gcloud beta scheduler jobs create pubsub slack-emoji-reminder --project <YOUR GCP PROJECT> \
-  --schedule "55 23 * * *" \
+  --schedule "00 8 * * *" \
   --topic topic-slack-emoji-reminder \
   --message-body="execute" \
   --time-zone "Asia/Tokyo"
