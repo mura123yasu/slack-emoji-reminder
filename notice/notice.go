@@ -37,7 +37,7 @@ func (n *Notifier) Notify(messages *slack.SearchMessages) (string, error) {
 	// post messages to thread
 	for index := range messages.Matches {
 		fmt.Println(messages.Matches[index].Text)
-		message := messages.Matches[index].Text + "\n" + messages.Matches[index].Permalink + "\n"
+		message := messages.Matches[index].Text + "\n" + messages.Matches[index].Permalink + "\n" + "```" + messages.Matches[index].Timestamp + "```" + "\n"
 		err = n.postThreadInline(message, ts)
 		if err != nil {
 			fmt.Printf("[USER-ERROR]thread post failed. %v\n", err.Error())
